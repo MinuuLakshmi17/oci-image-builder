@@ -1,0 +1,15 @@
+name: hello-oci
+tag: "1.0"
+architecture: amd64
+os: linux
+layers:
+  - source: app
+    destination: /app
+config:
+  WorkingDir: /app
+  Entrypoint: ["/bin/sh", "-c"]
+  Cmd: ["echo hello from an OCI image"]
+  Env:
+    - "APP_ENV=demo"
+  Labels:
+    org.opencontainers.image.description: "Example image built without Docker"

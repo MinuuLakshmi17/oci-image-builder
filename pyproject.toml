@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oci-image-builder"
+version = "0.1.0"
+description = "Build minimal OCI image layouts from a YAML spec without a container daemon"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[project.scripts]
+oci-image-builder = "oci_builder.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
